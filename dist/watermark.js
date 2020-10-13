@@ -499,6 +499,10 @@ function text_atPos(xFn, yFn, text, font, fillStyle, alpha) {
     context.fillStyle = fillStyle;
     context.font = font;
     var metrics = context.measureText(text);
+    context.strokeStyle = 'black';
+    context.lineWidth = 4;
+    context.strokeText(text, xFn(target, metrics, context), yFn(target, metrics, context));
+    context.fillStyle = 'white';
     context.fillText(text, xFn(target, metrics, context), yFn(target, metrics, context));
     context.restore();
     return target;
